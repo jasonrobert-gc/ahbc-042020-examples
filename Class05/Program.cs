@@ -1,11 +1,30 @@
 ﻿using System;
+using System.Data;
+using System.Linq;
 
 namespace Class05
 {
     class Program
     {
+        private static int[] Left(int[] array)
+        {
+            return array.Take(array.Length / 2).ToArray();
+        }
+
+        private static int[] Right(int[] array)
+        {
+            return array.Skip(array.Length / 2).ToArray();
+        }
+
         static void Main(string[] args)
         {
+            int[] array = new[] {1, 2, 3, 4, 5};
+            
+            Console.WriteLine(string.Join(", ", array));
+            Console.WriteLine(string.Join(", ", Left(array)));
+            Console.WriteLine(string.Join(", ", Right(array)));
+            return;
+
             Console.WriteLine(Factorial(7));
 
             Log(IsEven(6).ToString());
