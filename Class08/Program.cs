@@ -7,7 +7,6 @@ namespace Class08
         static void Main(string[] args)
         {
             // Looping an array
-
             string[] array = new string[100000];
             array[0] = "Hello";
             array[1] = "World";
