@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Class10
@@ -8,6 +7,34 @@ namespace Class10
     {
         static void Main(string[] args)
         {
+            // Dictionaries - Creating, Adding, Displaying
+            var dictionary = new Dictionary<int, string>();
+            dictionary.Add(57, "Jason's old football number");
+            Console.WriteLine(dictionary[57]);
+
+            //// With an int[] for Patrick
+            //var numbers = new Dictionary<string, int[]>();
+            //numbers.Add("Football", new int[] { 56, 57 });
+            //numbers.Add("Year", new int[] { 2020, 2021, 2022 });
+            //for (int i = 0; i < numbers["Year"].Length; i++)
+            //{
+            //    Console.WriteLine(numbers["Year"][i]);
+            //}
+
+            var numbers = new Dictionary<string, List<int>>();
+            numbers.Add("Football", new List<int> { 56, 57 });
+            numbers.Add("Year", new List<int> { 2020, 2021, 2022 });
+            numbers["Year"].Add(2023);
+            numbers["Year"].Add(2024);
+            for (int i = 0; i < numbers["Year"].Count; i++)
+            {
+                Console.WriteLine(numbers["Year"][i]);
+            }
+
+            //// Dictionaries - Addl functions
+            //// numbers.Add("Year", new int[] { 1999, 2000 });
+            //numbers.TryAdd("Year", new int[] { 1999, 2000 });
+
             // Looping through a list with foreach
             var list5 = new List<int> { 1, 2, 4, 8, 16, 32 };
             Console.WriteLine("With a foreach...");
@@ -24,8 +51,6 @@ namespace Class10
                 Console.WriteLine(number);
             }
             
-            return;
-
             // List methodsssssssssssssssssssssssssssssss
             var list4 = new List<int>();
             list4.Add(57);
