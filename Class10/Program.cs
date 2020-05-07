@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Class10
@@ -7,6 +8,34 @@ namespace Class10
     {
         static void Main(string[] args)
         {
+            // NON-Generic, don't use
+            // Bad for two reason.  Never use these
+            // 1. You don't know what is in there (no type safety)
+            // 2. Leads to "boxing" copying value types to/from the heap
+            var arraylist = new ArrayList();
+            arraylist.Add(132);
+            arraylist.Add("asdfasdf");
+
+            // Always use the generic collections!
+
+            // Queue
+            var queue1 = new Queue<int>();
+            queue1.Enqueue(56);
+            queue1.Enqueue(57);
+            queue1.Enqueue(58);
+            Console.WriteLine(queue1.Dequeue()); // 56
+            Console.WriteLine(queue1.Dequeue()); // 57
+            Console.WriteLine(queue1.Dequeue()); // 58
+
+            // Stack
+            var stack1 = new Stack<int>();
+            stack1.Push(56);
+            stack1.Push(57);
+            stack1.Push(58);
+            Console.WriteLine(stack1.Pop()); // 58
+            Console.WriteLine(stack1.Pop()); // 57
+            Console.WriteLine(stack1.Pop()); // 56
+
             // Dictionaries - Creating, Adding, Displaying
             var dictionary = new Dictionary<int, string>();
             dictionary.Add(57, "Jason's old football number");
