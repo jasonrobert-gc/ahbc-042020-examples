@@ -25,5 +25,10 @@ namespace Class12
         public int EmployeeNumber { get; set; }
 
         protected int Salary { get; set; }
+
+        public override string GetFullName()
+        {
+            return $"Employee {FirstName} {LastName}";
+        }
     }
 }

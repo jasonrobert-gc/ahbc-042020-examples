@@ -12,7 +12,7 @@ namespace Class12
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        public string GetFullName()
+        public virtual string GetFullName()
         {
             return $"{FirstName} {LastName}";
         }
