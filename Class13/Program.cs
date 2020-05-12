@@ -8,9 +8,11 @@ namespace Class13
         {
             var manager = new Manager();
             var director = new Director();
-
+            var srManager = new SeniorManager();
+            
             PayEmployee(manager, 10);
             PayEmployee(director, 15);
+            PayEmployee(srManager, 13);
         }
 
         static void PayEmployee(Employee employee, int amount)
