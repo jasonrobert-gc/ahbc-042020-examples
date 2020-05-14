@@ -17,5 +17,10 @@ namespace Bonus13
             base.Play();
             Console.WriteLine($"SpellNumber = {SpellNumber}");
         }
+
+        public override void Move(int x, int y)
+        {
+            Console.WriteLine($"Wizard moved from {x} to {y}");
+        }
     }
 }

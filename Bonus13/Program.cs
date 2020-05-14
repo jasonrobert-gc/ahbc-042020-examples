@@ -25,6 +25,10 @@ namespace Bonus13
                 // But that doesn't change what they are... Warriors are always warriors.  So the instantiated type (the child class)
                 // is the one thats method is called.
                 character.Play();
+
+                // We can access the Move method off of Game Character and it calls the Move method from the instantiated type.
+                // even those it is not implemented in the abstract class.
+                character.Move(1, 1);
             }
         }
     }

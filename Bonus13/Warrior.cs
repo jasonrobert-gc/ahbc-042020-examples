@@ -21,5 +21,11 @@ namespace Bonus13
             base.Play();
             Console.WriteLine($"WeaponType: {WeaponType}");
         }
+
+        // Move HAS to be overridden because we are inheriting from an abstract class!
+        public override void Move(int x, int y)
+        {
+            Console.WriteLine($"Wizard moved from {x} to {y}");
+        }
     }
 }

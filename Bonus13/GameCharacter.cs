@@ -2,7 +2,7 @@
 
 namespace Bonus13
 {
-    public class GameCharacter
+    public abstract class GameCharacter
     {
         public GameCharacter(string name, int strength, int intelligence)
         {
@@ -21,5 +21,7 @@ namespace Bonus13
             Console.WriteLine($"Strength: {Strength}");
             Console.WriteLine($"Intelligence: {Intelligence}");
         }
+
+        public abstract void Move(int x, int y);
     }
 }
