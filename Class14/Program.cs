@@ -6,8 +6,9 @@ namespace Class14
     {
         static void Main(string[] args)
         {
-            IAnimal animal1 = new Frog();
-            IAnimal animal2 = new WaterBuffalo();
+            var factory = new AnimalFactory();
+            IAnimal animal1 = factory.Create("Frog");
+            IAnimal animal2 = factory.Create("WaterBuffalo");
 
             var result = WhoLives(animal1, animal2);
 

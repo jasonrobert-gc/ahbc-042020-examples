@@ -45,6 +45,8 @@ namespace Class15
 
             // I can also manipulate files with other static File methods.
             File.Delete("Somedata.txt");
+            File.Move("", "");
+            File.Create("");
         }
 
         static bool IsWeekend(Day day)

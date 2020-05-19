@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Class10
 {
@@ -126,6 +127,23 @@ namespace Class10
             // Initializing an array vs a list
             myArray = new int[5];
             myList = new List<int>();
+        }
+
+        private static string DeathStarCombat(Dictionary<string, int> attackValues)
+        {
+            var highestValue = 0;
+            var highestName = string.Empty;
+
+            foreach (var attack in attackValues)
+            {
+                if (attack.Value > highestValue)
+                {
+                    highestValue = attack.Value;
+                    highestName = attack.Key;
+                }
+            }
+
+            return highestName;
         }
     }
 }
