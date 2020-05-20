@@ -8,6 +8,7 @@ namespace Class17
         {
             Console.WriteLine("I'm just creating this to show how merging works!");
             Console.WriteLine("Some changes I forgot");
+            Console.WriteLine("One more time!");
         }
     }
 }
