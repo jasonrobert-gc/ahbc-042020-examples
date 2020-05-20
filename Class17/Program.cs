@@ -7,6 +7,7 @@ namespace Class17
         static void Main(string[] args)
         {
             Console.WriteLine("I'm just creating this to show how merging works!");
+            Console.WriteLine("Some changes I forgot");
         }
     }
 }
