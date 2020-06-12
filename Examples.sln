@@ -41,9 +41,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Class16", "Class16\Class16.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Class17", "Class17\Class17.csproj", "{A752B18B-074C-461C-8AA5-05F2186C9D14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockAssessment3", "MockAssessment3\MockAssessment3.csproj", "{D192512F-5097-427C-926B-30795EFD38DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MockAssessment3", "MockAssessment3\MockAssessment3.csproj", "{D192512F-5097-427C-926B-30795EFD38DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Class26", "Class26\Class26.csproj", "{B39886C7-42C8-4F22-B2A1-6929054E5689}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Class26", "Class26\Class26.csproj", "{B39886C7-42C8-4F22-B2A1-6929054E5689}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Class27", "Class27\Class27.csproj", "{F1AC3097-13CC-4DAD-ADE3-97D5CB95FD01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,6 +137,10 @@ Global
 		{B39886C7-42C8-4F22-B2A1-6929054E5689}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B39886C7-42C8-4F22-B2A1-6929054E5689}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B39886C7-42C8-4F22-B2A1-6929054E5689}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1AC3097-13CC-4DAD-ADE3-97D5CB95FD01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1AC3097-13CC-4DAD-ADE3-97D5CB95FD01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1AC3097-13CC-4DAD-ADE3-97D5CB95FD01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1AC3097-13CC-4DAD-ADE3-97D5CB95FD01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
