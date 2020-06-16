@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Class27
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -15,8 +15,13 @@ namespace Class27
             var found = LinearSearch(sorted, 4);
         }
 
-        private static bool LinearSearch(List<int> sorted, int value)
+        public static bool LinearSearch(List<int> sorted, int value)
         {
+            if (sorted == null)
+            {
+                return false;
+            }
+
             foreach (var item in sorted)
             {
                 if (item == value)
@@ -28,7 +33,7 @@ namespace Class27
             return false;
         }
 
-        private static List<int> MergeSort(List<int> unsorted)
+        public  static List<int> MergeSort(List<int> unsorted)
         {
             if (unsorted.Count <= 1)
             {
@@ -97,7 +102,7 @@ namespace Class27
             return result;
         }
 
-        private static int[] BubbleSort(int[] unsorted)
+        public static int[] BubbleSort(int[] unsorted)
         {
             for (int i = 0; i < unsorted.Length; i++)
             {
