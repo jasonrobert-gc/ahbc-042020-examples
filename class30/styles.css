@@ -1,0 +1,17 @@
+ /* header */
+h1 {
+    color: fuchsia;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+p {
+    margin: 20px;
+}
+
+.small {
+    font-size: small;
+}
+
+#bottom {
+    color: hotpink;
+}
