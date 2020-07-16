@@ -2,9 +2,13 @@
 
 namespace Class40.Services
 {
+    /// <summary>
+    /// SOLID - Single Responsiblity Principle (SRP) - MathService is only responsible for math.  Doesn't care about 
+    /// anything else.
+    /// </summary>
     public class MathService : IMathService
     {
-        private CalculateRequest _request;
+        private CalculateRequest _lastRequest;
 
         public CalculateResult Calculate(CalculateRequest request)
         {
@@ -21,7 +25,7 @@ namespace Class40.Services
 
             */
 
-            _request = request;
+            _lastRequest = request;
 
             switch (request.Type)
             {
@@ -40,7 +44,7 @@ namespace Class40.Services
 
         public CalculateRequest GetLastRequest()
         {
-            return _request;
+            return _lastRequest;
         }
     }
 }
