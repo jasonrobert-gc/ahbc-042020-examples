@@ -1,13 +1,22 @@
 ﻿using Class40.Models;
+using Class40.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Class40.Controllers
 {
     public class CalculatorController : Controller
     {
+        private IMathService _mathService;
+
+        public CalculatorController(IMathService mathService)
+        {
+            _mathService = mathService;
+        }
+
         public IActionResult Index(CalculateRequest request)
         {
-            return View(request);
+            var lastRequest = _mathService.GetLastRequest();
+            return View(lastRequest);
         }
 
         [HttpPost]
@@ -17,11 +26,10 @@ namespace Class40.Controllers
             {
                 return RedirectToAction("Index");
             }
+            
+            var model = _mathService.Calculate(request);
 
-            // TODO - Support multiple calculation types.
-            var sum = request.FirstNumber + request.SecondNumber;
-            var result = new CalculateResult { Result = sum };
-            return View(result);
+            return View(model);
         }
     }
 }
