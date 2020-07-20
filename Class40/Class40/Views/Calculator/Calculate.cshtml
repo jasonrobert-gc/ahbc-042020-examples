@@ -7,4 +7,16 @@
 <h4>Here is your result</h4>
 <hr />
 
-The result is... @Model.Result
+<!-- Strongly typed -->
+<p>
+    The result is... @Model.Result
+</p>
+
+<!-- Loosely typed -->
+<p>
+    Calculation was started at <i>@ViewData["StartTime"]</i>
+</p>
+
+<p>
+    and completed at <i>@ViewBag.EndTime</i>
+</p>

@@ -32,6 +32,11 @@
     </div>
 </div>
 
+@if (TempData.Peek("LastRequest") != null)
+{
+    <p>@TempData["LastRequest"]</p>
+}
+
 @section Scripts {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

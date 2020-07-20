@@ -1,6 +1,7 @@
 ﻿using Class40.Models;
 using Class40.Services;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace Class40.Controllers
 {
@@ -23,8 +24,7 @@ namespace Class40.Controllers
 
         public IActionResult Index(CalculateRequest request)
         {
-            var lastRequest = _mathService.GetLastRequest();
-            return View(lastRequest);
+            return View(request);
         }
 
         [HttpPost]
@@ -34,8 +34,18 @@ namespace Class40.Controllers
             {
                 return RedirectToAction("Index");
             }
-            
+
+            // Loosely Typed  View Data
+            ViewData["StartTime"] = DateTime.Now;
+
+            // Strongly Typed Model
             var model = _mathService.Calculate(request);
+
+            // Loosely Typed View Bag
+            ViewBag.EndTime = DateTime.Now;
+
+            // Loosely Typed Temp Data (Read Once)
+            TempData["LastRequest"] = $"The last request was to {request.Type} {request.FirstNumber} and {request.SecondNumber}";
 
             return View(model);
         }

@@ -26,9 +26,10 @@ namespace Class40
         public void ConfigureServices(IServiceCollection services)
         {
             // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1
-            //services.AddTransient<IMathService, MathService>();
-            services.AddSingleton<IMathService, MathService>();
+            //services.AddSingleton<IMathService, MathService>();
+            services.AddTransient<IMathService, MathService>();
             services.AddControllersWithViews();
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
