@@ -1,5 +1,6 @@
 ﻿using Class40.Models;
 using Class40.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -11,15 +12,17 @@ namespace Class40.Controllers
     /// </summary>
     public class CalculatorController : Controller
     {
-        private IMathService _mathService;
+        private readonly IMathService _mathService;
+        private readonly IHttpContextAccessor _httpContext;
 
         /// <summary>
         /// SOLID - Dependency Inversion Principle (DIP) - We invert the dependencies by breaking the direct reference
         /// to Math Service.  "Be dependent on abstractions over implementations"
         /// </summary>
-        public CalculatorController(IMathService mathService)
+        public CalculatorController(IMathService mathService, IHttpContextAccessor httpContext)
         {
             _mathService = mathService;
+            _httpContext = httpContext;
         }
 
         public IActionResult Index(CalculateRequest request)
@@ -45,7 +48,11 @@ namespace Class40.Controllers
             ViewBag.EndTime = DateTime.Now;
 
             // Loosely Typed Temp Data (Read Once)
-            TempData["LastRequest"] = $"The last request was to {request.Type} {request.FirstNumber} and {request.SecondNumber}";
+            var lastRequest = $"The last request was to {request.Type} {request.FirstNumber} and {request.SecondNumber}";
+            TempData["LastRequest"] = lastRequest;
+
+            // Setting in the session to be reused
+            _httpContext.HttpContext.Session.SetString("lastRequest", lastRequest);
 
             return View(model);
         }

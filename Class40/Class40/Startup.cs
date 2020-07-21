@@ -29,7 +29,8 @@ namespace Class40
             //services.AddSingleton<IMathService, MathService>();
             services.AddTransient<IMathService, MathService>();
             services.AddControllersWithViews();
-            services.AddMemoryCache();
+            services.AddHttpContextAccessor();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +52,8 @@ namespace Class40
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,4 +1,8 @@
 ﻿<!DOCTYPE html>
+
+@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor httpContext;
+
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -41,6 +45,7 @@
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2020 - Class40 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <span><i>@httpContext.HttpContext.Session.GetString("lastRequest")</i></span>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
