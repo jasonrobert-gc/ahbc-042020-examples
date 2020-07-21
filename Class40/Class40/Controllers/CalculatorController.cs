@@ -3,6 +3,7 @@ using Class40.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
 
 namespace Class40.Controllers
 {
@@ -27,6 +28,10 @@ namespace Class40.Controllers
 
         public IActionResult Index(CalculateRequest request)
         {
+            // We could also access this data in the controller
+            //_httpContext.HttpContext.Session.GetString("lastRequest");
+            //_httpContext.HttpContext.Request.Cookies.FirstOrDefault(x => x.Key == "lastRequest").Value;
+
             return View(request);
         }
 
@@ -53,6 +58,9 @@ namespace Class40.Controllers
 
             // Setting in the session to be reused
             _httpContext.HttpContext.Session.SetString("lastRequest", lastRequest);
+
+            // Setting in the cookie (always in the response)
+            _httpContext.HttpContext.Response.Cookies.Append("lastRequest", lastRequest);
 
             return View(model);
         }
