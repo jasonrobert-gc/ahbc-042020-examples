@@ -15,15 +15,9 @@ namespace Class43.Controllers
 
         public IActionResult Index()
         {
-            var current = _accessor.HttpContext.Session.GetInt32("quantity");
-            if (current == null)
-            {
-                current = 0;
-            }
-
             var model = new ShoppingCart
             {
-                Quantity = current.Value
+                Quantity = GetQuantity()
             };
 
             return View(model);
@@ -31,16 +25,25 @@ namespace Class43.Controllers
 
         public IActionResult Submit()
         {
-            var current = _accessor.HttpContext.Session.GetInt32("quantity");
-            if (current == null)
-            {
-                current = 0;
-            }
+            var newValue = GetQuantity() + 1;
 
-            var newValue = current.Value + 1;
-            _accessor.HttpContext.Session.SetInt32("quantity", newValue);
+            _accessor.HttpContext.Response.Cookies.Append("quantity", newValue.ToString());
+            //_accessor.HttpContext.Session.SetInt32("quantity", newValue);
 
             return RedirectToAction("Index");
+        }
+
+        private int GetQuantity()
+        {
+            var current = _accessor.HttpContext.Request.Cookies["quantity"];
+            //var current = _accessor.HttpContext.Session.GetInt32("quantity");
+
+            if (!int.TryParse(current, out int value))
+            {
+                value = 0;
+            }
+
+            return value;
         }
     }
 }
