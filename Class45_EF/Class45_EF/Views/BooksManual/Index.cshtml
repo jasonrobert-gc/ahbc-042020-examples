@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<Book>
+
+    <table>
+        @foreach (var book in Model)
+        {
+        <tr>
+            <td>
+                @book.BookId
+            </td>
+            <td>
+                @book.Title
+            </td>
+            <td>
+                @book.ReleaseDate
+            </td>
+            <td>
+                @book.Genre
+            </td>
+        </tr>
+        }
+    </table>
+
+

@@ -10,7 +10,6 @@ namespace Class45_EF.Models
         public string FirstName { get; set; }
 
         [StringLength(50)]
-        [DataType(DataType.)]
         public string LastName { get; set; }
     }
 }

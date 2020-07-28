@@ -13,17 +13,14 @@ namespace Class45_EF.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly LibraryContext _dbContext;
 
-        public HomeController(ILogger<HomeController> logger, LibraryContext dbContext)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _dbContext = dbContext;
         }
 
         public IActionResult Index()
         {
-            var test = _dbContext.Books.First();
             return View();
         }
 
