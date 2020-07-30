@@ -33,8 +33,7 @@ namespace Class45_EF.Controllers
                 return NotFound();
             }
 
-            var book = await _context.Books
-                .FirstOrDefaultAsync(m => m.BookId == id);
+            var book = await _context.Books.FirstOrDefaultAsync(m => m.BookId == id);
             if (book == null)
             {
                 return NotFound();
