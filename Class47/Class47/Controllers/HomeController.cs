@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Class47.Models;
@@ -24,18 +23,24 @@ namespace Class47.Controllers
 
         public IActionResult Index()
         {
-            //// Save a list into session
-            //_session.SetString("Cart", JsonConvert.SerializeObject(list));
+            //// Ternary Operator
+            // var list = _session.Keys.Any(x => x == "Cart") 
+            //    ? JsonConvert.DeserializeObject<List<Book>>(_session.GetString("Cart")) 
+            //    : new List<Book>();
 
-            //// Retrieve a list out of session
-            //JsonConvert.DeserializeObject<List<Book>>(_session.GetString("Cart"));
+            // Retrieving from session adding an item and saving back to session
+            List<Book> list;
+            if (_session.Keys.Any(x => x == "Cart"))
+            {
+                list = JsonConvert.DeserializeObject<List<Book>>(_session.GetString("Cart"));
+            }
+            else
+            {
+                list = new List<Book>();
+            }
 
-            ///////////////////////////////////////////////////////////////////////
-
-            //// Retrieving from session adding an item and saving back to session
-            //var list = JsonConvert.DeserializeObject<List<Book>>(_session.GetString("Cart"));
-            //list.Add(...);
-            //_session.SetString("Cart", JsonConvert.SerializeObject(list));
+            list.Add(new Book(){ Title = $"Book #{DateTime.Now.Ticks}" });
+            _session.SetString("Cart", JsonConvert.SerializeObject(list));
 
             return View();
         }

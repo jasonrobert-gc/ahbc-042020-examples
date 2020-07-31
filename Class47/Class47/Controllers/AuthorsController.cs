@@ -22,7 +22,10 @@ namespace Class47.Controllers
         // GET: Authors
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Authors.ToListAsync());
+            //var authors = await _context.Authors.Where(x => x.FirstName.StartsWith("J")).ToListAsync();
+            var authors = await _context.Authors.OrderBy(x => x.FirstName).ToListAsync();
+
+            return View(authors);
         }
 
         // GET: Authors/Details/5

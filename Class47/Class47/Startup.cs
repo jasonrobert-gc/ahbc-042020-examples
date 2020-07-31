@@ -20,6 +20,8 @@ namespace Class47
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
+            services.AddSession();
             services.AddControllersWithViews();
             services.AddDbContext<LibraryContext>(o =>
             {
@@ -46,7 +48,7 @@ namespace Class47
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
