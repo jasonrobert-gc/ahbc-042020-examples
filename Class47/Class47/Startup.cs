@@ -1,4 +1,5 @@
 using Class47.Data;
+using Class47.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -20,12 +21,14 @@ namespace Class47
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<VersionOptions>(Configuration.GetSection("Version"));
             services.AddHttpContextAccessor();
             services.AddSession();
             services.AddControllersWithViews();
             services.AddDbContext<LibraryContext>(o =>
             {
-                o.UseSqlServer(Configuration.GetConnectionString("Default"));
+                //o.UseSqlServer(Configuration.GetConnectionString("Default"));
+                o.UseSqlServer(Configuration.GetSection("ConnectionStrings:Default").Value);
             });
         }
 

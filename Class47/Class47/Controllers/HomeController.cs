@@ -7,17 +7,21 @@ using Microsoft.Extensions.Logging;
 using Class47.Models;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using Microsoft.Extensions.Options;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace Class47.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IOptions<VersionOptions> _options;
         private readonly ISession _session;
 
-        public HomeController(ILogger<HomeController> logger, IHttpContextAccessor accessor)
+        public HomeController(ILogger<HomeController> logger, IHttpContextAccessor accessor, IOptions<VersionOptions> options)
         {
             _logger = logger;
+            _options = options;
             _session = accessor.HttpContext.Session;
         }
 
@@ -47,6 +51,7 @@ namespace Class47.Controllers
 
         public IActionResult Privacy()
         {
+            ViewData["Version"] = _options.Value.SoftwareVersion;
             return View();
         }
 
