@@ -1,5 +1,4 @@
-﻿
-using Class54.Models;
+﻿using Class54.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
