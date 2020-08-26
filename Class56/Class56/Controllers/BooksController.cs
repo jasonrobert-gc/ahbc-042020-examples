@@ -21,6 +21,13 @@ namespace Class56.Controllers
             return View(model);
         }
 
+        // GET: Books
+        public async Task<Book> Details(int id)
+        {
+            var model = await _service.Get(id);
+            return model;
+        }
+
         // GET: Books/Create
         public ActionResult Create()
         {
