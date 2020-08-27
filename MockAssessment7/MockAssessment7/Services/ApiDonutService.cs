@@ -1,4 +1,5 @@
 ﻿using MockAssessment7.Models;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -12,6 +13,12 @@ namespace MockAssessment7.Services
         public ApiDonutService(HttpClient client)
         {
             _client = client;
+        }
+
+        public async Task<IEnumerable<Donut>> Get()
+        {
+            var response = await _client.GetFromJsonAsync<DonutResponse>($"donuts.json");
+            return response.Results;
         }
 
         public async Task<Donut> Get(int id)
