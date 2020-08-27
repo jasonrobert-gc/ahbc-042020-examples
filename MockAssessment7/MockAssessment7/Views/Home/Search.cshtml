@@ -1,0 +1,52 @@
+﻿@model MockAssessment7.Models.Donut
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>View</h1>
+
+<div>
+    <h4>Donut</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Calories)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Calories)
+        </dd>
+        @if (!string.IsNullOrEmpty(Model.PhotoUrl))
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PhotoUrl)
+            </dt>
+            <dd class="col-sm-10">
+                <img src="@Model.PhotoUrl" height="50" />
+            </dd>
+        }
+        @if (Model.Extras != null && Model.Extras.Length != 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Extras)
+            </dt>
+            <dd class="col-sm-10">
+                <ul>
+                    @foreach (var extra in Model.Extras)
+                    {
+                        <li>@extra</li>
+                    }
+                </ul>
+            </dd>
+        }
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
